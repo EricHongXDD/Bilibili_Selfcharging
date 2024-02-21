@@ -1,0 +1,42 @@
+name: 'Bilibili Selfcharging'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tieba_sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Set python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+      - name: 'Install dependencies'
+        run: python -m pip install --upgrade -r requirements.txt
+      - name: 'Start Selfcharging'
+        env:
+          API_URL: ${{ secrets.API_URL }}
+          OCR_TOKEN: ${{ secrets.OCR_TOKEN }}
+          OCR_URL: ${{ secrets.OCR_URL }}
+          up_mid: ${{ secrets.up_mid }}
+          phone_list: ${{ secrets.phone_list }}
+          Z15821506118_USERNAME: ${{ secrets.Z15821506118_USERNAME }}
+          Z15821506118_PASSWORD: ${{ secrets.Z15821506118_PASSWORD }}
+        run: python main.py
+      - name: Append Success Log #追加成功日志
+        run: |
+          echo "$(date +%Y-%m-%d\ %H:%M:%S) - 充电成功" >> run.log
+      - name: Upload log #上传日志
+        uses: actions/upload-artifact@v2
+        with:
+          name: logs
+          path: run.log
+      - name: Push log #更新日志
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: auto-checkin
+          branch: main
