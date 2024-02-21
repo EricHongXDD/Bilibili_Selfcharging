@@ -1,0 +1,2 @@
+# Bilibili_Selfcharging
+B站年度大会员每月自动领券充电
