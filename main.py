@@ -23,8 +23,8 @@ phone_list = os.environ.get("PHONE_LIST")
 
 # 可选
 LOGIN_API_URL = os.environ.get("LOGIN_API_URL")
-# {phone}_USERNAME {phone}_PASSWORD
-# {phone}_COOKIES
+# Z{phone}_USERNAME Z{phone}_PASSWORD
+# Z{phone}_COOKIES
 
 HEADERS = {
     'Host': 'api.bilibili.com',
@@ -134,8 +134,8 @@ def load_account_cookies(phone):
     if cookies_json is None:
         logger.info(f"未获取到账号{phone}的Cookies，获取账号密码登录")
         # 账号和密码的变量名
-        username_var = f"{phone}_USERNAME"
-        password_var = f"{phone}_PASSWORD"
+        username_var = f"Z{phone}_USERNAME"
+        password_var = f"Z{phone}_PASSWORD"
         # 从环境变量中获取username和password
         username = os.environ.get(username_var)
         password = os.environ.get(password_var)
