@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-
+  schedule:
+    - cron: '0 23 1,16 * *'
+    
 jobs:
   Bilibili_Selfcharging:
     runs-on: ubuntu-latest
