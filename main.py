@@ -139,6 +139,8 @@ def load_account_cookies(phone):
         # 从环境变量中获取username和password
         username = os.environ.get(username_var)
         password = os.environ.get(password_var)
+        if username is None or password is None:
+            logger.info("账号或密码为空")
         cookies_json = str(get_cookie(username,password))
 
 
