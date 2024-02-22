@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  tieba_sign:
+  Bilibili_Selfcharging:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
@@ -29,7 +29,7 @@ jobs:
         run: python main.py
       - name: Append Success Log #追加成功日志
         run: |
-          echo "$(date +%Y-%m-%d\ %H:%M:%S) - 充电成功" >> run.log
+          echo "$(date +%Y-%m-%d\ %H:%M:%S) - 完成操作" >> run.log
       - name: Upload log #上传日志
         uses: actions/upload-artifact@v2
         with:
