@@ -121,6 +121,7 @@ def login(username,password,token,validate,challenge):
     response = session.post(url, headers=headers, data=params)
     resp = response.json()['data']
 
+    logger.info("response.text：" + response.text)
     # print(response.text)
     # 获取cookie
     # print(response.cookies)
