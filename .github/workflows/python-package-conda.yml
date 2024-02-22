@@ -22,8 +22,8 @@ jobs:
           API_URL: ${{ secrets.API_URL }}
           OCR_TOKEN: ${{ secrets.OCR_TOKEN }}
           OCR_URL: ${{ secrets.OCR_URL }}
-          up_mid: ${{ secrets.up_mid }}
-          phone_list: ${{ secrets.phone_list }}
+          UP_MID: ${{ secrets.UP_MID }}
+          PHONE_LIST: ${{ secrets.PHONE_LIST }}
           Z15821506118_USERNAME: ${{ secrets.Z15821506118_USERNAME }}
           Z15821506118_PASSWORD: ${{ secrets.Z15821506118_PASSWORD }}
         run: python main.py
