@@ -112,7 +112,6 @@ def get_cookie(username,password):
 
     # 输出cookie的JSON字典
     result = json.dumps(cookies_list)
-    print(result)
     return result
 
 
