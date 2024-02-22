@@ -17,9 +17,9 @@ RECEIVE_URL = "https://api.bilibili.com/x/vip/privilege/receive"
 CHARGING_URL = "https://api.bilibili.com/x/ugcpay/web/v2/trade/elec/pay/quick"
 
 # 必须
-up_mid = os.environ.get("UP_MID")
+UP_MID = os.environ.get("UP_MID")
 # 登录的账号列表
-phone_list = os.environ.get("PHONE_LIST")
+PHONE_LIST = os.environ.get("PHONE_LIST")
 
 # 可选
 LOGIN_API_URL = os.environ.get("LOGIN_API_URL")
@@ -205,13 +205,13 @@ def trade_elec_pay_quick(phone, cookie, bili_jct, userid):
 
     data = copy.copy(CHARGING_DATA)
     data.update({
-        UPMID: up_mid,
+        UPMID: UP_MID,
         OID: userid,
         CSRF: bili_jct,
     })
 
     try:
-        logger.info(f"账号{phone}充电开始，对象UID{up_mid}")
+        logger.info(f"账号{phone}充电开始，对象UID{UP_MID}")
         response = s.post(url=CHARGING_URL, headers=headers, data=data)
 
         # 返回内容有Brotli压缩，要解压，需要安装Brotli库，装了brotli后会自己去解析数据格式，因此代码上不要做任何修改和操作
@@ -234,7 +234,7 @@ def trade_elec_pay_quick(phone, cookie, bili_jct, userid):
 
 if __name__ == "__main__":
     # 使用split()方法按分号分割字符串，得到一个包含所有账号的列表
-    phones = phone_list.split(';')
+    phones = PHONE_LIST.split(';')
     # 遍历手机号列表，得到cookies列表
     for phone in phones:
         logger.info("开始处理账号："+phone)
