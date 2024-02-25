@@ -125,7 +125,7 @@ def load_account_cookies(phone):
 
     logger.info(f"获取账号{phone}的Cookies开始")
     # 账号Cookies的变量名
-    cookies_var = f"{phone}_COOKIES"
+    cookies_var = f"Z{phone}_COOKIES"
     # 从环境变量中获取cookies（JSON形式字符串，配合登录软件保存的cookies使用，若获取的本来就是普通字符串形式的，则可跳过处理）
     cookies_json = os.environ.get(cookies_var)
 
