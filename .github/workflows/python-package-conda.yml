@@ -28,7 +28,6 @@ jobs:
           PHONE_LIST: ${{ secrets.PHONE_LIST }}
           Z15821506118_USERNAME: ${{ secrets.Z15821506118_USERNAME }}
           Z15821506118_PASSWORD: ${{ secrets.Z15821506118_PASSWORD }}
-          Z18916338848_COOKIES: ${{ secrets.Z18916338848_COOKIES }}
         run: python main.py
       - name: Append Success Log #追加成功日志
         run: |
