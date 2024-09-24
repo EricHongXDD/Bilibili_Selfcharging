@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "$(date +%Y-%m-%d\ %H:%M:%S) - 完成操作" >> run.log
       - name: Upload log #上传日志
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: logs
           path: run.log
